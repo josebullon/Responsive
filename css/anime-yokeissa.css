@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+
+}
+
+/*
+body{
+    background-image:url(../image/fondo.png);
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+*/
+
+.ttexto{
+    /*Centrado*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    /*Fuentes*/
+    font-family: Orbitron-Medium;
+
+    font-size: 100px;
+    color: transparent;
+    -webkit-text-stroke: 0.1px rgba(0, 0, 0, 0.35);
+    
+    /*Fondo*/
+    background-image: url(../image/r008.jpg);
+    -webkit-background-clip: text;
+    background-repeat: no-repeat;
+    background-position: 200% 0%;
+    
+    /*animacion*/
+    animation: carga 20s linear infinite;
+}
+
+@keyframes carga {
+    from{
+       background-position: 200% 0%; 
+    }to{
+        background-position: 0% 0%;
+    }
+}

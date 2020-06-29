@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <!-- Rsponsive Bootstrap -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>yokeissa</title>
+
+        <!-- Icono-yokeissa -->
+        <link rel=icon href="ico/yokeissa.ico">
+    <!-- LIB -->
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <!-- Orbitron -->
+        <link rel="stylesheet" href="css/Orbitron-Medium.css">
+        
+        <!-- Font Awesome --><!-- Codigos RedesSociales -->        
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+        <style>
+
+            /* Color Blanco del Sub*/
+            a:link, a:visited, a:active{
+                color:#ffffff;
+                text-decoration:none;
+            }
+
+            /* Carousel */
+            .carousel-item{
+                height: 100vh;
+                min-height: 300px;
+                background: no-repeat center center scroll;
+                -webkit-background-size: cover;
+                background-size: cover;
+            }
+            .carousel-caption{
+                bottom: 220px;
+            }
+            .carousel-caption h5{
+                font-size: 58px;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                margin-top: 25px;
+                color: rgb(179, 149, 16);
+                font-family: Orbitron-Medium; 
+            }
+            .carousel-caption p{
+                width: 60%;
+                margin: auto;
+                font-size: 18px;
+                line-height: 1.9;
+                font-family: Orbitron-Medium; 
+            }
+            .carousel-caption a{
+                text-transform: uppercase;
+                background: rgb(12, 175, 245);
+                padding: 10px 30px;
+                display: inline-block;
+                color: #ffffff;
+                margin-top: 15px ;
+            }
+
+            /* Menu */
+            .navbar-nav a{
+                font-family: Orbitron-Medium; 
+                font-size: 20px;
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+            .navbar-light .navbar-brand{
+                color: #92730f;
+                font-size: 25px;
+                text-transform: uppercase;
+                font-weight: bold;
+                letter-spacing: 2px;
+            }
+            .navbar-light .navbar-nav .active > .nav-link,
+            .navbar-light .navbar-nav .nav-link.active,
+            .navbar-light .navbar-nav .nav-link.show,
+            .navbar-light .navbar-nav .show > .nav-link{
+                color: rgb(12, 175, 245);/* Color de activado */
+            }
+            .navbar-light .navbar-nav .nav-link{
+                color: #ffffff;/* Color de las letras */
+            }
+            .navbar-nav{
+                text-align: center;
+            }
+            .nav-link{
+                padding: 2rem 1rem;
+            }
+            .nav-link.active .navbar-nav .nav-link:focus,
+            .navbar-light .navbar-nav .nav-link:hover{
+                color: rgb(179, 149, 16);/* Color al seleccionar */
+            }
+
+            /* Oscurecer la imagen de fondo */
+            #fondo {
+                background-size: cover;
+                background-repeat: no-repeat;
+                content:"";
+                position:absolute;
+                left:0;
+                right:0;
+                top:0;
+                opacity: 0.7;
+            }
+            #fondo:before {
+                content:'';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background-color: rgba(0, 8, 20, 0.6);
+            }
+            #fondo h1 {
+                font-size: 60px;
+                color: rgb(255, 255, 255);
+                position: relative
+            }
+
+            /* Efecto Boton Empezar */
+            .main-button {
+                position:relative;
+                display:inline-block;
+                padding:10px 30px;
+                background-color: rgb(12, 175, 245);
+                border: 2px solid transparent;
+                border-radius: 40px;
+                color: #FFF;
+                -webkit-transition:0.2s all;
+                transition:0.2s all;
+            }
+            .main-button:hover , .main-button:focus {
+                background-color:#fff;
+                border: 2px solid rgb(12, 175, 245);
+                color:rgb(12, 175, 245);
+            }
+            .main-button.icon-button:hover , .main-button.icon-button:focus {
+                padding-right: 45px;
+            }
+            .main-button.icon-button:after {
+                content:"\f178";/* aqui */
+                font-family: Orbitron-Medium;
+                position:absolute;
+                width: 30px;
+                right: 15px;
+                text-align:center;
+                opacity:0;
+                -webkit-transition:0.2s all;
+                transition:0.2s all;
+            }
+
+            /* Efecto Botones RededSocial */
+            .middle{
+                position: absolute;
+                top: 95%;/***posicion***/
+                transform: translateY(-50%);
+                width: 100%;
+                text-align: center;
+            }
+            .btn{
+                display: inline-block;
+                width: 50px;/***tamaño del boton***/
+                height: 50px;
+                background: #a4a7a4;
+                margin: 10px;
+                border-radius: 30%;
+                box-shadow: 0 5px 15px -5px rgba(231, 69, 69, 0.439);/*Sombras*/
+                color:  #3498db;
+                overflow: hidden;
+                position: relative;
+            }
+            .btn i{
+                line-height: 40px;/***tamaño del icono***/
+                font-size: 26px;
+                transition: 0.2s linear;
+            }
+            .btn:hover i{
+                transform: scale(1.3);
+                color: #f1f1f1;/***color a cambiar del icono***/
+            }
+            .btn::before{
+                content: "";
+                position: absolute;
+                width: 120%;
+                height: 120%;
+                background: rgb(12, 175, 245);/***color a cambiar del contorno***/
+                transform: rotate(45deg);
+                left: -110%;
+                top: 90%;
+            }
+            .btn:hover::before{
+                animation: aaa 0.7s 1;
+                top: -10%;
+                left: -10%;
+            }
+            @keyframes aaa {
+                0%{
+                    left: -110%;
+                    top: 90%;
+                }50%{
+                    left: 10%;
+                    top: -30%;
+                }100%{
+                    top: -10%;
+                    left: -10%;
+                }
+            }
+            .main-button.icon-button:hover:after , .main-button.icon-button:focus:after {
+                opacity:5;
+            }
+
+            /*Responsive*/
+            .w-100{
+                height: 100vh;
+            }
+            @media only screen and (max-width: 767px){
+                .navbar-nav.ml-auto{
+                    background: rgba(0, 0, 0, 0.6);
+                }
+                .navbar-toggler{
+                    padding: 1px 5px;
+                    font-size: 18px;
+                    line-height: 0.3;
+                    background: #ffffff;
+                }
+            }
+
+        </style>
+
+    </head>
+    <body>     
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+            <div class="navbar-header">
+                <!-- Logo -->
+                <div class="navbar-brand">
+                    <a class="logo">
+                        <img src="ico/yokeissa.ico"  style="width:90px">
+                    </a>
+                </div>
+                <!-- /Logo -->
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">
+                            <img src="ico/01-i.ico"              style="width:50px">Principal
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="02-nosot/nosot.html">
+                            <img src="ico/02-n.ico"              style="width:50px">Nosotros
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <img src="ico/03-c.ico"              style="width:50px">Cursos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="04-codig/codig.html">
+                            <img src="ico/04-c.ico"              style="width:50px">Codigos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="05-conta/conta.html">
+                            <img src="ico/05-c.ico"              style="width:50px">Contactame
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="06-login/login.html">
+                            <img src="ico/06-l.ico"              style="width:50px">Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div id="fondo">
+                        <img src="image/r001.jpg" class="d-block w-100" alt="...">
+                    </div> 
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 class="animated bounceInRight" style="animation-delay: 1s">
+                            Web Development
+                        </h5>
+                        <p class="animated bounceInLeft" style="animation-delay: 2s">
+                            Si Tú Lo Deseas Puedes Programar
+                        </p>
+                        <p class="animated bounceInRight" style="animation-delay: 3s">
+                            <a class="main-button icon-button" href="04-codig/codig.html">YOKEISSA. Solución Tecnologia a tu mano</a>
+                        </p>
+                    </div>
+
+                    <footer>
+                        <div class="middle">
+                            <a class="btn" href="#">
+                            <i  title="Facebook" class="fab fa-facebook-f"></i>
+                            </a>
+                            <a class="btn" href="#">
+                            <i title="Twitter" class="fab fa-twitter"></i>
+                            </a>
+                            <a  class="btn" href="#">
+                            <i  title="Google" class="fab fa-google"></i>
+                            </a>
+                            <a class="btn" href="#">
+                            <i title="Instagram" class="fab fa-instagram"></i>
+                            </a>
+                            <a class="btn" href="#">
+                            <i title="Youtube" class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </footer>
+
+                </div>
+                <div class="carousel-item">
+                    <div id="fondo">
+                        <img src="image/r002.jpg" class="d-block w-100" alt="...">
+                    </div> 
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 class="animated slideInDown" style="animation-delay: 1s">
+                            Cursos y Codigos Gratis!!!
+                        </h5>
+                        <p class="animated fadeInUp" style="animation-delay: 2s">
+                            Front end & Back end
+                        </p>
+                        <p class="animated zoomIn" style="animation-delay: 3s">
+                            <a class="main-button icon-button" href="04-codig/codig.html">YOKEISSA. Solución Tecnologia a tu mano</a>
+                        </p>
+                    </div>
+
+                    <footer>
+                        <div class="middle">
+                            <a class="btn" href="#">
+                            <i  title="Facebook" class="fab fa-facebook-f"></i>
+                            </a>
+                            <a class="btn" href="#">
+                            <i title="Twitter" class="fab fa-twitter"></i>
+                            </a>
+                            <a  class="btn" href="#">
+                            <i  title="Google" class="fab fa-google"></i>
+                            </a>
+                            <a class="btn" href="#">
+                            <i title="Instagram" class="fab fa-instagram"></i>
+                            </a>
+                            <a class="btn" href="#">
+                            <i title="Youtube" class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </footer>
+
+                </div>
+                <div class="carousel-item">
+                    <div id="fondo">
+                        <img src="image/r003.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 class="animated slideInDown" style="animation-delay: 1s">
+                            Yokeissa
+                        </h5>
+                        <p class="animated fadeInUp" style="animation-delay: 2s">
+                            Cursos y Codigos Gratis!!!
+                        </p>
+                        <a class="main-button icon-button" href="04-codig/codig.html">Empezar!</a>
+                    </div>
+
+                    <footer>
+                        <div class="middle">
+                            <a class="btn" href="#">
+                            <i  title="Facebook" class="fab fa-facebook-f"></i>
+                            </a>
+                            <a class="btn" href="#">
+                            <i title="Twitter" class="fab fa-twitter"></i>
+                            </a>
+                            <a  class="btn" href="#">
+                            <i  title="Google" class="fab fa-google"></i>
+                            </a>
+                            <a class="btn" href="#">
+                            <i title="Instagram" class="fab fa-instagram"></i>
+                            </a>
+                            <a class="btn" href="#">
+                            <i title="Youtube" class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </footer>
+
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>
